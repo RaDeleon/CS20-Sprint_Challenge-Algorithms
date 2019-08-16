@@ -123,8 +123,22 @@ class SortingRobot:
                 break
 
             self.set_light_on()
-
             
+            #while the sort is not at the begining of the list
+            while self.can_move_left():
+                self.swap_item()
+                self.move_left()
+                
+                # if held item is smaller
+                if self.compare_item() == -1:
+                    self.swap_item()
+                    self.set_light_off()
+
+                # push item to the next spot
+                self.move_right()
+                self.swap.item()
+                self.move_right()
+                
 
 if __name__ == "__main__":
     # Test our your implementation from the command line
